@@ -2,45 +2,50 @@ import FEN from "./FEN.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    let config, board;
+    let fen, config, board;
     const FEN_input = document.querySelector("#input input"),
         FEN_output = document.querySelector("#output input"),
-        FEN_regex = /\s*([rnbqkpRNBQKP1-8]+\/){7}([rnbqkpRNBQKP1-8]+)\s[bw-]\s(([a-hkqA-HKQ]{1,4})|(-))\s(([a-h][36])|(-))\s\d+\s\d+\s*/,
+        FEN_regex = /^([rnbqkpRNBQKP1-8]+\/){7}([rnbqkpRNBQKP1-8]+)\s[bw-]\s(([a-hkqA-HKQ]{1,4})|(-))\s(([a-h][36])|(-))\s\d+\s\d+$/,
         display_output = () => {
-            board = Chessboard("board", config.fenString);
-            FEN_output.value = config.fenString;
+            config.position = fen.fenString;
+            board = Chessboard("board", config);
+            FEN_output.value = fen.fenString;
         }
 
-    config = new FEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1");
+    fen = new FEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1");
+    config = {
+        orientation: "white"
+    }
     display_output();
 
     FEN_input.addEventListener("keyup", function () {
         if (FEN_regex.test(this.value)) {
-            config = new FEN(this.value);
-            display_output();
+            fen = new FEN(this.value);
         } else {
-            board = Chessboard("board", config.fenString);
+            fen = new FEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1");
         }
+        display_output()
     });
 
     document.querySelector("#flip-board").addEventListener("click", () => {
-        board.flip()
+        config.orientation = (config.orientation === "white") ? "black" : "white";
+        board.flip();
     });
 
     document.querySelectorAll("#controls button").forEach(button => {
         button.addEventListener("click", () => {
             switch (button.id) {
                 case "swap-colors":
-                    config.swapColors();
+                    fen.swapColors();
                     break;
                 case "flip-horizontally":
-                    config.flipHorizontally();
+                    fen.flipHorizontally();
                     break;
                 case "flip-vertically":
-                    config.flipVertically();
+                    fen.flipVertically();
                     break;
                 case "on-move":
-                    config.changeSideToMove();
+                    fen.changeSideToMove();
                     break;
             }
             display_output();
