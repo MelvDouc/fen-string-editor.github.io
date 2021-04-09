@@ -2,12 +2,10 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css");
 
 :root {
-    --green1: rgb(102, 255, 102);
-    --green2: rgb(97, 255, 97);
-    --inputPadding1: .2rem .5rem;
-    --inputWidth1: 50%;
     --boardWidth: 30%;
+    --inputWidth1: 50%;
     --inputHeight1: 2rem;
+    --inputPadding1: .2rem .5rem;
     --sectionMargin: 1rem;
     --iconFontSize: 2rem;
     --fontFamily1: 'Exo', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -37,15 +35,17 @@ body {
 header {
     display: grid;
     place-items: center;
-    background: var(--green1);
-    background: radial-gradient(var(--green1), var(--green2));
+    background: #485461;
+    background: linear-gradient(315deg, #485461 0%, #28313b 74%);
     color: black;
+    color: white;
     padding: 1rem;
 }
 
 h1 {
     font-size: 2rem;
     text-align: center;
+    letter-spacing: 4px;
 }
 
 /*  */
@@ -57,6 +57,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    background: url("../img/bg-chessboard.jpg") center / cover no-repeat;
 }
 
 section + section {
@@ -73,11 +74,12 @@ section {
 
 input {
     all: unset;
-    font-family: var(--fontFamily1);
     border: 1px solid black;
     width: var(--inputWidth1);
     height: var(--inputHeight1);
     padding: var(--inputPadding1);
+    background: white;
+    font-family: var(--fontFamily1);
 }
 
 /*  */
@@ -257,19 +259,19 @@ footer img {
     width: var(--iconFontSize);
 }
 
-/*  */
-/*  */
+/* ==================== ==================== ==================== ==================== */
+/* ==================== ==================== ==================== ==================== */
 
-@media only screen and (max-width: 1200px) {
+@media (max-width: 600px) {
     :root {
-        --inputWidth1: 65%;
+        --boardWidth: 75%;
     }
 }
 
-@media only screen and (max-width: 992px) {
+@media (min-width: 600.1px) and (max-width: 992px) {
     :root {
+        --boardWidth: 60%;
         --inputWidth1: 80%;
-        --boardWidth: 65%;
     }
 
     #output {
@@ -297,5 +299,12 @@ footer img {
 
     footer li {
         flex-basis: 50%;
+    }
+}
+
+@media (min-width: 992.1px) and (max-width: 1200px) {
+    :root {
+        --boardWidth: 45%;
+        --inputWidth1: 65%;
     }
 }
