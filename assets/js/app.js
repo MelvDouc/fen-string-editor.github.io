@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     display_output();
 
-    FEN_input.addEventListener("keyup", function () {
+    FEN_input.addEventListener("input", function () {
         if (FEN_regex.test(this.value)) {
             fen = new FEN(this.value);
         } else {
