@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Melvin DOUCET">
+    <meta name="description"
+        content="A web app for editing an FEN string by swapping colors, the side to move or flipping the board around.">
+    <meta name="keywords" content="chess, fen, pgn, edit, swap, flip, board, colors, side">
+    <link rel="icon" type="image/png" href="./assets/img/icon-chessboard.png">
+    <link rel="stylesheet" href="./assets/css/chessboard-1.0.0.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" defer></script>
+    <script src="./assets/js/chessboard-1.0.0.min.js" defer></script>
+    <script type="module" src="./assets/js/app.js" defer></script>
+    <title>FEN Editor</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>FEN Editor</h1>
+    </header>
+
+    <main>
+        <section id="input">
+            <input type="text" placeholder="Paste your FEN string here">
+        </section>
+
+        <section id="board-area">
+            <button id="flip-board" title="Flip board">
+                <i class="bi bi-arrow-repeat"></i>
+            </button>
+            <div id="board"></div>
+            <div id="controls">
+                <button id="swap-colors" title="Swap colors">
+                    <i class="bi bi-circle-half"></i>
+                </button>
+                <button id="flip-horizontally" title="Flip horizontally">
+                    <i class="bi bi-arrow-left-right"></i>
+                </button>
+                <button id="flip-vertically" title="Flip vertically">
+                    <i class="bi bi-arrow-down-up"></i>
+                </button>
+                <button id="on-move" title="Swap side to move">
+                    <i class="bi bi-person-check"></i>
+                </button>
+            </div>
+        </section>
+
+
+        <section id="output">
+            <div>
+                <!-- a hack to place button next to centered input using grid -->
+            </div>
+            <input type="text" readonly>
+            <button title="Copy">
+                <i class="bi bi-files"></i>
+                <div id="copy-notif">Copied!</div>
+            </button>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>&copy;&thinsp;Melvin DOUCET.</p>
+        <ul id="icons">
+            <li>
+                <a href="https://lichess.org/@/maelstrom57">
+                    <img src="./assets/img/footer-icons/icon-lichess.png" alt="Lichess icon" />
+                </a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/channel/UC9BJqAqRlOJBAA0O4WYSmnw">
+                    <i class="bi bi-youtube"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/MelvDouc">
+                    <i class="bi bi-github"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/melvin-doucet-b11931114/">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+            </li>
+
+        </ul>
+    </footer>
+</body>
+
+</html>
