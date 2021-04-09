@@ -261,6 +261,25 @@ footer img {
     width: var(--iconFontSize);
 }
 
+/*  */
+/*  */
+
+#lichess-link:hover {
+    filter: brightness(85%);
+}
+
+#youtube-link:hover i {
+    color: red;
+}
+
+#github-link:hover {
+    filter: invert(1);
+}
+
+#linkedin-link:hover i {
+    color: #0077b5;
+}
+
 /* ==================== ==================== ==================== ==================== */
 /* ==================== ==================== ==================== ==================== */
 
