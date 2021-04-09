@@ -6,13 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const FEN_input = document.querySelector("#input input"),
         FEN_output = document.querySelector("#output input"),
         FEN_regex = /^([rnbqkpRNBQKP1-8]+\/){7}([rnbqkpRNBQKP1-8]+)\s[bw-]\s(([a-hkqA-HKQ]{1,4})|(-))\s(([a-h][36])|(-))\s\d+\s\d+$/,
+        start_position = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1",
         display_output = () => {
             config.position = fen.fenString;
             board = Chessboard("board", config);
             FEN_output.value = fen.fenString;
         }
 
-    fen = new FEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1");
+    fen = new FEN(start_position);
     config = {
         orientation: "white"
     }
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (FEN_regex.test(this.value)) {
             fen = new FEN(this.value);
         } else {
-            fen = new FEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1");
+            fen = new FEN(start_position);
         }
         display_output()
     });
