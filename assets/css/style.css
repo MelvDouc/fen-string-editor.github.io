@@ -131,7 +131,7 @@ button:active {
     margin-right: -.33rem;
     width: 16px;
     height: 16px;
-    background: transparent;
+    background: white;
     padding: .33rem;
     display: none;
 }
@@ -265,12 +265,6 @@ footer img {
 @media (max-width: 600px) {
     :root {
         --boardWidth: 75%;
-    }
-}
-
-@media (min-width: 600.1px) and (max-width: 992px) {
-    :root {
-        --boardWidth: 60%;
         --inputWidth1: 80%;
     }
 
@@ -299,6 +293,12 @@ footer img {
 
     footer li {
         flex-basis: 50%;
+    }
+}
+
+@media (min-width: 600.1px) and (max-width: 992px) {
+    :root {
+        --boardWidth: 60%;
     }
 }
 
